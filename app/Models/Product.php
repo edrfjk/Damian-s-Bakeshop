@@ -11,31 +11,31 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        'category_id',
         'name',
         'slug',
+        'sku',
+        'category_id',
         'description',
         'short_description',
         'price',
         'compare_price',
         'stock',
-        'sku',
         'image',
-        'images',
         'is_featured',
         'is_active',
-        'views',
     ];
 
     protected $casts = [
         'price' => 'decimal:2',
         'compare_price' => 'decimal:2',
-        'images' => 'array',
+        'stock' => 'integer',
         'is_featured' => 'boolean',
         'is_active' => 'boolean',
     ];
 
-    // Auto-generate slug and SKU
+    /**
+     * Boot method to auto-generate slug and SKU
+     */
     protected static function boot()
     {
         parent::boot();
@@ -56,7 +56,9 @@ class Product extends Model
         });
     }
 
-    // Relationships
+    /**
+     * Relationships
+     */
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -72,7 +74,27 @@ class Product extends Model
         return $this->hasMany(CartItem::class);
     }
 
-    // Scopes
+    /**
+     * Accessors
+     */
+    public function getImageUrlAttribute()
+    {
+        if ($this->image) {
+            // Check if it's a full URL
+            if (Str::startsWith($this->image, ['http://', 'https://'])) {
+                return $this->image;
+            }
+            // Return storage path
+            return asset('storage/' . $this->image);
+        }
+
+        // Default placeholder image
+        return asset('images/placeholder-product.png');
+    }
+
+    /**
+     * Scopes
+     */
     public function scopeActive($query)
     {
         return $query->where('is_active', true);
@@ -88,59 +110,30 @@ class Product extends Model
         return $query->where('stock', '>', 0);
     }
 
-    public function scopeSearch($query, $term)
+    /**
+     * Helper methods
+     */
+    public function isInStock()
     {
-        return $query->where(function ($q) use ($term) {
-            $q->where('name', 'like', "%{$term}%")
-              ->orWhere('description', 'like', "%{$term}%")
-              ->orWhere('sku', 'like', "%{$term}%");
-        });
+        return $this->stock > 0;
     }
 
-    // Accessors
-    public function getImageUrlAttribute()
+    public function isLowStock($threshold = 10)
     {
-        return $this->image 
-            ? asset('storage/' . $this->image) 
-            : 'https://via.placeholder.com/600x400/8b5cf6/ffffff?text=' . urlencode($this->name);
+        return $this->stock > 0 && $this->stock <= $threshold;
     }
 
-    public function getDiscountPercentageAttribute()
-    {
-        if ($this->compare_price && $this->compare_price > $this->price) {
-            return round((($this->compare_price - $this->price) / $this->compare_price) * 100);
-        }
-        return 0;
-    }
-
-    public function getIsOnSaleAttribute()
+    public function hasDiscount()
     {
         return $this->compare_price && $this->compare_price > $this->price;
     }
 
-    public function getStockStatusAttribute()
+    public function getDiscountPercentage()
     {
-        if ($this->stock <= 0) {
-            return 'out_of_stock';
-        } elseif ($this->stock <= 10) {
-            return 'low_stock';
+        if (!$this->hasDiscount()) {
+            return 0;
         }
-        return 'in_stock';
-    }
 
-    // Methods
-    public function incrementViews()
-    {
-        $this->increment('views');
-    }
-
-    public function decreaseStock($quantity)
-    {
-        $this->decrement('stock', $quantity);
-    }
-
-    public function increaseStock($quantity)
-    {
-        $this->increment('stock', $quantity);
+        return round((($this->compare_price - $this->price) / $this->compare_price) * 100);
     }
 }

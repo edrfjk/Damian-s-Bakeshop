@@ -55,7 +55,8 @@ class CartController extends Controller
 
             $cartItem->update([
                 'quantity' => $newQuantity,
-                'subtotal' => $newQuantity * $cartItem->price,
+                'price' => $product->price,
+                'subtotal' => $newQuantity * $product->price,
             ]);
         } else {
             // Add new item
@@ -68,6 +69,7 @@ class CartController extends Controller
         }
 
         // Update cart subtotal
+        $cart->load('items');
         $cart->updateSubtotal();
 
         return redirect()->route('customer.cart.index')->with('success', $product->name . ' added to cart!');
