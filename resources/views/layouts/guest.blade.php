@@ -23,9 +23,9 @@
     <!-- Brand top -->
     <div class="w-full max-w-md relative z-10">
         <div class="text-center mb-8 animate-slide-up">
-            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full mb-4 shadow-2xl" style="background: linear-gradient(135deg, #c8860a, #e8a020);">
-                <span class="text-4xl">🍞</span>
-            </div>
+<div class="inline-flex items-center justify-center w-20 h-20 rounded-full mb-4 shadow-2xl overflow-hidden bg-white">
+    <img src="{{ asset('images/logo.jpg') }}" alt="Damian Bakeshop Logo" class="w-16 h-16 object-contain">
+</div>
             <h1 class="text-3xl font-display font-bold text-white mb-1">Damian Bakeshop</h1>
             <p class="script-font text-golden-light text-lg">Handcrafted with Love</p>
         </div>

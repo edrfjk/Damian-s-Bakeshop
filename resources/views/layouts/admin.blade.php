@@ -19,8 +19,8 @@
                 <!-- Logo -->
                 <div class="p-6 border-b" style="border-color: var(--cream-parchment);">
                     <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 group">
-                        <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-md transition-transform group-hover:scale-110" style="background: linear-gradient(135deg, #c8860a, #e8a020);">
-                            <span class="text-2xl">🍞</span>
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-md transition-transform group-hover:scale-110 bg-white overflow-hidden border" style="border-color: var(--cream-parchment);">
+                            <img src="{{ asset('images/logo.jpg') }}" alt="Damian Bakeshop Logo" class="w-10 h-10 object-contain">
                         </div>
                         <div>
                             <span class="font-display font-bold text-lg leading-tight block" style="color: var(--chocolate);">Damian Bakeshop</span>
@@ -96,8 +96,8 @@
             <!-- Top Bar (Mobile) -->
             <header class="lg:hidden flex items-center justify-between p-4 border-b bg-white" style="border-color: var(--cream-parchment);">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #c8860a, #e8a020);">
-                        <span class="text-xl">🍞</span>
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center bg-white overflow-hidden border" style="border-color: var(--cream-parchment);">
+                        <img src="{{ asset('images/logo.png') }}" alt="Damian Bakeshop Logo" class="w-8 h-8 object-contain">
                     </div>
                     <span class="font-display font-bold" style="color: var(--chocolate);">Admin Panel</span>
                 </div>

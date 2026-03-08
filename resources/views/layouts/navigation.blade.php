@@ -4,9 +4,9 @@
 
             <!-- Logo -->
             <a href="{{ route('home') }}" class="flex items-center gap-3 group">
-                <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-md transition-transform group-hover:scale-110" style="background: linear-gradient(135deg, #c8860a, #e8a020);">
-                    <span class="text-2xl">🍞</span>
-                </div>
+<div class="w-12 h-12 rounded-full flex items-center justify-center shadow-md transition-transform group-hover:scale-110 bg-white overflow-hidden border" style="border-color: var(--cream-parchment);">
+    <img src="{{ asset('images/logo.jpg') }}" alt="Damian Bakeshop Logo" class="w-10 h-10 object-contain">
+</div>
                 <div>
                     <span class="font-display font-bold text-xl text-chocolate-DEFAULT leading-tight block" style="color: var(--chocolate);">Damian Bakeshop</span>
                     <span class="script-font text-xs leading-none" style="color: var(--golden);">Handcrafted with Love</span>

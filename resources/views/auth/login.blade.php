@@ -31,10 +31,6 @@
                 <input type="password" name="password" class="input" placeholder="••••••••" required>
             </div>
             <div class="flex items-center justify-between">
-                <label class="flex items-center gap-2 cursor-pointer">
-                    <input type="checkbox" name="remember" class="w-4 h-4 rounded" style="accent-color: var(--golden);">
-                    <span class="text-sm" style="color: var(--chocolate-light);">Remember me</span>
-                </label>
             </div>
             <button type="submit" class="btn btn-primary w-full py-4 text-base">
                 Sign In to My Account

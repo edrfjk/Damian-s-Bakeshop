@@ -17,22 +17,40 @@
 
         <form action="{{ route('register') }}" method="POST" class="space-y-4">
             @csrf
+
             <div>
                 <label class="block text-sm font-bold mb-2" style="color: var(--chocolate);">Full Name</label>
                 <input type="text" name="name" value="{{ old('name') }}" class="input" placeholder="Juan dela Cruz" required autofocus>
             </div>
+
             <div>
                 <label class="block text-sm font-bold mb-2" style="color: var(--chocolate);">Email Address</label>
                 <input type="email" name="email" value="{{ old('email') }}" class="input" placeholder="your@email.com" required>
             </div>
+
             <div>
                 <label class="block text-sm font-bold mb-2" style="color: var(--chocolate);">Phone Number</label>
                 <input type="tel" name="phone" value="{{ old('phone') }}" class="input" placeholder="+63 912 345 6789">
             </div>
+
+            <!-- PASSWORD -->
             <div>
                 <label class="block text-sm font-bold mb-2" style="color: var(--chocolate);">Password</label>
-                <input type="password" name="password" class="input" placeholder="At least 8 characters" required>
+
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    class="input"
+                    placeholder="At least 8 characters"
+                    required
+                    onkeyup="checkPasswordStrength()"
+                >
+
+                <!-- Strength Indicator -->
+                <div class="mt-2 text-sm font-semibold" id="password-strength"></div>
             </div>
+
             <div>
                 <label class="block text-sm font-bold mb-2" style="color: var(--chocolate);">Confirm Password</label>
                 <input type="password" name="password_confirmation" class="input" placeholder="••••••••" required>
@@ -57,4 +75,40 @@
         </a>
     </div>
 </div>
+
+
+<!-- PASSWORD STRENGTH SCRIPT -->
+<script>
+function checkPasswordStrength() {
+
+    const password = document.getElementById("password").value;
+    const strengthText = document.getElementById("password-strength");
+
+    let strength = 0;
+
+    if (password.length >= 8) strength++;
+    if (password.match(/[A-Z]/)) strength++;
+    if (password.match(/[0-9]/)) strength++;
+    if (password.match(/[^A-Za-z0-9]/)) strength++;
+
+    if (password.length === 0) {
+        strengthText.innerHTML = "";
+        return;
+    }
+
+    if (strength <= 1) {
+        strengthText.innerHTML = "Weak Password";
+        strengthText.style.color = "#dc2626";
+    }
+    else if (strength === 2 || strength === 3) {
+        strengthText.innerHTML = "Medium Strength";
+        strengthText.style.color = "#d97706";
+    }
+    else {
+        strengthText.innerHTML = "Strong Password";
+        strengthText.style.color = "#16a34a";
+    }
+}
+</script>
+
 @endsection

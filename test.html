@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Poster – Marjorie Morgate</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --chocolate:       #4a2410;
+    --chocolate-light: #7a4020;
+    --chocolate-mid:   #5c2e16;
+    --golden:          #c8860a;
+    --golden-light:    #e8a020;
+    --golden-pale:     #f5d680;
+    --cream:           #fdf6ec;
+    --cream-dark:      #f5e8d0;
+    --cream-parchment: #ede0c4;
+    --rose:            #c0392b;
+    --warm-shadow:     rgba(74,36,16,0.18);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    width: 10165px;
+    background: var(--cream);
+    font-family: 'Lato', sans-serif;
+    color: var(--chocolate);
+  }
+  .page { position:relative; min-height:14231px; }
+
+  /* HEADER */
+  .header-band {
+    background: linear-gradient(135deg, var(--chocolate) 0%, var(--chocolate-mid) 60%, var(--chocolate-light) 100%);
+    padding: 64px 99px 49px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header-band::after {
+    content:'';
+    position:absolute; bottom:0; left:0; right:0; height:14px;
+    background: linear-gradient(90deg, var(--golden), var(--golden-light), var(--golden));
+  }
+  .header-band::before {
+    content:'✦ · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ✦';
+    position:absolute; top:21px; left:0; right:0;
+    text-align:center; font-size:28px; opacity:.2; letter-spacing:7px; color:var(--golden-pale);
+  }
+  .header-inner {
+    display:flex; align-items:center; justify-content:space-between; gap:42px; margin-top:28px;
+  }
+  .school-logo {
+    width:219px; height:219px; border-radius:50%;
+    background: linear-gradient(135deg, var(--golden), var(--golden-light));
+    display:flex; align-items:center; justify-content:center;
+    font-size:99px;
+    box-shadow:0 14px 42px rgba(0,0,0,.3);
+    flex-shrink:0; border:7px solid rgba(255,255,255,.2);
+  }
+  .header-text { text-align:center; flex:1; }
+  .school-name {
+    font-family:'Playfair Display',serif; font-size:53px; font-weight:900;
+    color:#fff; letter-spacing:.18px; line-height:1.2; text-shadow:0 4px 11px rgba(0,0,0,.4);
+  }
+  .campus-tag {
+    font-family:'Lato',sans-serif; font-size:37px; font-weight:700;
+    color:var(--golden-pale); letter-spacing:11px; text-transform:uppercase; margin-top:7px;
+  }
+  .college-line { font-size:34px; color:rgba(255,255,255,.65); margin-top:14px; letter-spacing:.11px; }
+
+  /* TITLE */
+  .title-section {
+    background: var(--cream-dark);
+    border-bottom:11px solid var(--golden);
+    padding:56px 99px 42px; text-align:center;
+  }
+  .title-eyebrow {
+    font-family:'Dancing Script',cursive; font-size:53px; color:var(--golden); margin-bottom:14px;
+  }
+  .system-title {
+    font-family:'Playfair Display',serif; font-size:88px; font-weight:900;
+    color:var(--chocolate); line-height:1.15;
+  }
+  .title-icon {
+    display:inline-block;
+    background:linear-gradient(135deg,var(--golden),var(--golden-light));
+    border-radius:50%; width:99px; height:99px; line-height:99px; text-align:center;
+    font-size:49px; vertical-align:middle; margin:0 21px;
+    box-shadow:0 7px 21px var(--warm-shadow);
+  }
+  .title-sub { font-size:37px; color:var(--chocolate-light); margin-top:21px; font-style:italic; }
+  .ornament { color:var(--golden); font-size:49px; letter-spacing:14px; margin-top:21px; opacity:.6; }
+
+  /* BODY GRID */
+  .body-wrap { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+  .col-left  { border-right:5px solid var(--cream-parchment); }
+  .section   { padding:49px 64px; border-bottom:5px solid var(--cream-parchment); }
+  .section:last-child { border-bottom:none; }
+
+  .sec-head { display:flex; align-items:center; gap:25px; margin-bottom:32px; }
+  .sec-icon {
+    width:92px; height:92px; border-radius:28px;
+    background:linear-gradient(135deg,var(--golden),var(--golden-light));
+    display:flex; align-items:center; justify-content:center;
+    font-size:46px; flex-shrink:0; box-shadow:0 7px 21px var(--warm-shadow);
+  }
+  .sec-title {
+    font-family:'Playfair Display',serif; font-size:41px; font-weight:700;
+    color:var(--chocolate); text-transform:uppercase; letter-spacing:4px;
+    border-bottom:7px solid var(--golden-pale); padding-bottom:7px; flex:1;
+  }
+
+  .body-text { font-size:32px; line-height:1.6; color:var(--chocolate-light); text-align:justify; }
+  .body-text strong { color:var(--chocolate); }
+
+  .bullet-list { list-style:none; padding:0; }
+  .bullet-list li {
+    font-size:32px; line-height:1.55; color:var(--chocolate-light);
+    padding-left:49px; margin-bottom:14px; position:relative;
+  }
+  .bullet-list li::before {
+    content:'';
+    position:absolute; left:7px; top:21px;
+    width:21px; height:21px; border-radius:50%;
+    background:linear-gradient(135deg,var(--golden),var(--golden-light));
+  }
+
+  .sdg-block { margin-bottom:32px; }
+  .sdg-pill {
+    display:inline-flex; align-items:center; gap:18px;
+    background:linear-gradient(135deg,var(--chocolate),var(--chocolate-light));
+    color:var(--golden-pale); font-size:30px; font-weight:700;
+    padding:11px 35px; border-radius:71px; letter-spacing:.18px;
+    margin-bottom:18px; text-transform:uppercase;
+  }
+
+  /* USERS STRIP */
+  .users-strip {
+    background:linear-gradient(135deg,var(--cream-dark),var(--cream-parchment));
+    border-top:7px solid var(--golden-pale); border-bottom:7px solid var(--golden-pale);
+    padding:42px 99px;
+  }
+  .users-row { display:flex; gap:35px; justify-content:center; margin-top:35px; }
+  .user-card {
+    flex:1; max-width:635px; background:#fff;
+    border:5px solid var(--cream-parchment); border-radius:49px;
+    padding:42px 35px; text-align:center;
+    box-shadow:0 11px 35px var(--warm-shadow);
+  }
+  .user-emoji { font-size:99px; display:block; margin-bottom:18px; }
+  .user-name {
+    font-family:'Playfair Display',serif; font-size:35px; font-weight:700;
+    color:var(--chocolate); text-transform:uppercase; letter-spacing:.28px;
+  }
+  .user-desc { font-size:28px; color:var(--chocolate-light); margin-top:11px; line-height:1.4; }
+
+  /* UI MOCKUPS */
+  .ui-strip { background:var(--cream); padding:42px 99px; border-bottom:7px solid var(--cream-parchment); }
+  .mock-row { display:flex; gap:35px; margin-top:35px; }
+  .mock-card {
+    flex:1; background:var(--chocolate); border-radius:42px; overflow:hidden;
+    box-shadow:0 14px 49px var(--warm-shadow);
+  }
+  .mock-titlebar {
+    background:linear-gradient(90deg,var(--golden),var(--golden-light));
+    padding:14px 28px; display:flex; align-items:center; gap:14px;
+  }
+  .mock-dot { width:18px; height:18px; border-radius:50%; background:rgba(255,255,255,.5); }
+  .mock-label-top { font-size:25px; font-weight:700; color:var(--chocolate); margin-left:14px; letter-spacing:.18px; text-transform:uppercase; }
+  .mock-body {
+    padding:35px; min-height:240px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;
+  }
+  .mock-emoji { font-size:78px; }
+  .mock-rows { width:100%; }
+  .mock-row-line { height:18px; border-radius:11px; margin-bottom:14px; }
+  .mock-caption {
+    font-family:'Playfair Display',serif; font-size:32px; font-weight:700;
+    color:var(--chocolate); text-align:center; margin-top:25px;
+    text-transform:uppercase; letter-spacing:.28px;
+  }
+
+  /* FOOTER */
+  .footer {
+    background:linear-gradient(135deg,var(--chocolate),var(--chocolate-mid));
+    padding:42px 99px; display:flex; align-items:center; justify-content:space-between;
+    position:relative;
+  }
+  .footer::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:11px;
+    background:linear-gradient(90deg,var(--golden),var(--golden-light),var(--golden));
+  }
+  .footer-col { text-align:center; }
+  .footer-main { font-family:'Playfair Display',serif; font-size:39px; font-weight:700; color:#fff; }
+  .footer-sub { font-size:30px; color:var(--golden-pale); margin-top:7px; letter-spacing:.28px; text-transform:uppercase; }
+  .footer-divider { width:4px; height:113px; background:rgba(200,134,10,.4); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header-band">
+    <div class="header-inner">
+      <div class="school-logo">🏛️</div>
+      <div class="header-text">
+        <div class="school-name">Ilocos Sur Polytechnic State College</div>
+        <div class="campus-tag">Tagudin Campus</div>
+        <div class="college-line">College of Arts and Sciences &nbsp;·&nbsp; Bachelor of Science in Information Technology</div>
+      </div>
+      <div class="school-logo">🎓</div>
+    </div>
+  </div>
+
+  <!-- TITLE -->
+  <div class="title-section">
+    <div class="title-eyebrow">Proposed Research Title</div>
+    <div class="system-title">
+      <span class="title-icon">🛒</span>Online Ordering and Customer Management System<span class="title-icon">👥</span>
+    </div>
+    <div class="title-sub">A Web-Based Solution for Small and Medium-Sized Businesses &nbsp;·&nbsp; Web Application</div>
+    <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  </div>
+
+  <!-- BODY GRID -->
+  <div class="body-wrap">
+    <!-- LEFT -->
+    <div class="col-left">
+      <div class="section">
+        <div class="sec-head">
+          <div class="sec-icon">💡</div>
+          <div class="sec-title">What is the System?</div>
+        </div>
+        <p class="body-text">
+          The <strong>Online Ordering and Customer Management System</strong> is a web-based platform designed to address the inefficiencies of manual order handling in small and medium-sized businesses. Traditional methods often lead to errors, delayed transactions, lost records, and poor customer service.
+          <br><br>
+          This system allows customers to conveniently place and track orders online while enabling business owners to manage customer data, orders, and transactions efficiently — all in one integrated platform. By automating these processes, the system reduces workload, minimizes errors, and improves operational efficiency, supporting digital transformation for local businesses.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="sec-head">
+          <div class="sec-icon">🎯</div>
+          <div class="sec-title">Objectives</div>
+        </div>
+        <ul class="bullet-list">
+          <li>Design an online platform that allows customers to easily place and track their orders.</li>
+          <li>Develop a customer management module for storing and organizing customer information securely.</li>
+          <li>Reduce manual errors in order processing and record-keeping through automation.</li>
+          <li>Improve transaction speed and service quality for both customers and business owners.</li>
+          <li>Provide business owners with organized sales reports for better decision-making.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="sec-head">
+          <div class="sec-icon">🏪</div>
+          <div class="sec-title">Client / Recipient</div>
+        </div>
+        <ul class="bullet-list">
+          <li>Local small and medium-sized business owners</li>
+          <li>Retail or Food Service Businesses</li>
+          <li>Contact Person: <strong style="color:var(--chocolate)">Darilyn Cariaga</strong> — Owner</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="col-right">
+      <div class="section">
+        <div class="sec-head">
+          <div class="sec-icon">⚙️</div>
+          <div class="sec-title">System Functions</div>
+        </div>
+        <ul class="bullet-list">
+          <li>Customer registration and profile management for personalized service.</li>
+          <li>Product catalog listing with categories, descriptions, and pricing.</li>
+          <li>Online ordering with real-time cart and checkout functionality.</li>
+          <li>Order tracking and status updates for customers and owners.</li>
+          <li>Customer record management for organized and secure data storage.</li>
+          <li>Sales reporting and analytics dashboard for business insights.</li>
+          <li>Admin panel for managing products, orders, and customer information.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="sec-head">
+          <div class="sec-icon">🌍</div>
+          <div class="sec-title">SDG Addressed</div>
+        </div>
+        <div class="sdg-block">
+          <div class="sdg-pill">🏭 SDG 9 – Industry, Innovation &amp; Infrastructure</div>
+          <ul class="bullet-list">
+            <li>Promotes innovation by replacing manual operations with automated web-based processes.</li>
+            <li>Makes digital tools accessible to businesses with limited resources.</li>
+            <li>Encourages data-driven decisions through organized customer and transaction records.</li>
+          </ul>
+        </div>
+        <div class="sdg-block">
+          <div class="sdg-pill">💼 SDG 8 – Decent Work &amp; Economic Growth</div>
+          <ul class="bullet-list">
+            <li>Improves business productivity and service efficiency for local entrepreneurs.</li>
+            <li>Supports local economic participation through digital empowerment of SMEs.</li>
+          </ul>
+        </div>
+        <div class="sdg-block">
+          <div class="sdg-pill">🤝 SDG 17 – Partnerships for the Goals</div>
+          <ul class="bullet-list">
+            <li>Strengthens technology adoption among local business communities.</li>
+            <li>Bridges the gap between technology and underserved business sectors.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- USERS STRIP -->
+  <div class="users-strip">
+    <div class="sec-head" style="justify-content:center;">
+      <div class="sec-icon">👤</div>
+      <div class="sec-title" style="flex:unset; padding-right:12px;">System Users</div>
+    </div>
+    <div class="users-row">
+      <div class="user-card">
+        <span class="user-emoji">🛡️</span>
+        <div class="user-name">Administrator</div>
+        <div class="user-desc">Manages system settings, users, and overall platform configuration.</div>
+      </div>
+      <div class="user-card">
+        <span class="user-emoji">🧑‍🍳</span>
+        <div class="user-name">Business Owner</div>
+        <div class="user-desc">Manages products, monitors orders, and views sales analytics.</div>
+      </div>
+      <div class="user-card">
+        <span class="user-emoji">🛍️</span>
+        <div class="user-name">Customer</div>
+        <div class="user-desc">Browses products, places orders, and tracks delivery status online.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UI MOCKUPS -->
+  <div class="ui-strip">
+    <div class="sec-head" style="justify-content:center;">
+      <div class="sec-icon">🖥️</div>
+      <div class="sec-title" style="flex:unset; padding-right:12px;">User Interface</div>
+    </div>
+    <div class="mock-row">
+      <div style="flex:1;text-align:center;">
+        <div class="mock-card">
+          <div class="mock-titlebar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-label-top">Customer Portal</div></div>
+          <div class="mock-body">
+            <div class="mock-emoji">🛒</div>
+            <div class="mock-rows">
+              <div class="mock-row-line" style="background:rgba(200,134,10,.35);width:80%;margin:0 auto 4px;"></div>
+              <div class="mock-row-line" style="background:rgba(200,134,10,.2);width:60%;margin:0 auto 4px;"></div>
+              <div class="mock-row-line" style="background:rgba(200,134,10,.15);width:70%;margin:0 auto;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="mock-caption">Product Menu &amp; Ordering</div>
+      </div>
+      <div style="flex:1;text-align:center;">
+        <div class="mock-card">
+          <div class="mock-titlebar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-label-top">Admin Dashboard</div></div>
+          <div class="mock-body">
+            <div class="mock-emoji">📊</div>
+            <div class="mock-rows">
+              <div class="mock-row-line" style="background:rgba(200,134,10,.35);width:90%;margin:0 auto 4px;"></div>
+              <div class="mock-row-line" style="background:rgba(200,134,10,.2);width:55%;margin:0 auto 4px;"></div>
+              <div class="mock-row-line" style="background:rgba(200,134,10,.15);width:75%;margin:0 auto;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="mock-caption">Sales &amp; Analytics</div>
+      </div>
+      <div style="flex:1;text-align:center;">
+        <div class="mock-card">
+          <div class="mock-titlebar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-label-top">Order Tracking</div></div>
+          <div class="mock-body">
+            <div class="mock-emoji">📦</div>
+            <div class="mock-rows">
+              <div class="mock-row-line" style="background:rgba(200,134,10,.35);width:85%;margin:0 auto 4px;"></div>
+              <div class="mock-row-line" style="background:rgba(200,134,10,.2);width:65%;margin:0 auto 4px;"></div>
+              <div class="mock-row-line" style="background:rgba(200,134,10,.15);width:50%;margin:0 auto;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="mock-caption">Order Management</div>
+      </div>
+      <div style="flex:1;text-align:center;">
+        <div class="mock-card">
+          <div class="mock-titlebar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-label-top">Customer Records</div></div>
+          <div class="mock-body">
+            <div class="mock-emoji">👥</div>
+            <div class="mock-rows">
+              <div class="mock-row-line" style="background:rgba(200,134,10,.35);width:75%;margin:0 auto 4px;"></div>
+              <div class="mock-row-line" style="background:rgba(200,134,10,.2);width:90%;margin:0 auto 4px;"></div>
+              <div class="mock-row-line" style="background:rgba(200,134,10,.15);width:60%;margin:0 auto;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="mock-caption">Customer Management</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-col">
+      <div class="footer-main">Free Elect 101: Research Method</div>
+      <div class="footer-sub">Subject</div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-col">
+      <div class="footer-main" style="color:var(--golden-pale);font-size:13px;">Online Ordering &amp; Customer Management System</div>
+      <div class="footer-sub">Research Proposal · BSIT · 2025</div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-col">
+      <div class="footer-main">Morgate, Marjorie M.</div>
+      <div class="footer-sub">BSIT 3A &nbsp;·&nbsp; Researcher</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
